@@ -3,13 +3,19 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const title = "This is Agung's app";
-  const anotherTitle = "Tadaaa another title";
+  const list = [
+    'item 1',
+    'item 2',
+    'another item'
+  ];
+
   return (
     <div className="App">
       <h1>
         {
-          true ? anotherTitle : title
+          list.map(item => {
+            return <div>{item}</div>
+          })
         }
       </h1>
     </div>
