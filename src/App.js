@@ -10,26 +10,23 @@ class App extends Component {
       author: 'agung Tuanany'
     }
 
-   this.submitted = this.submitted.bind(this);
+   this.onClick = this.onClick.bind(this);
   }
 
-  submitted(e) {
-    e.preventDefault();
+  onClick(e) {
+    this.setState({
+      title: "A new title",
+      author: "AGUNG TUANANY"
+    });
 
-    console.log(this.input.value);
   }
-
 
   render() {
-  const list = [
-    'item 1',
-    'item 2',
-    'another item'
-  ];
     return (
       <div className="App">
         <h1>{this.state.title}</h1>
         <p>{this.state.author}</p>
+        <div onClick={this.onClick}>click me</div>
       </div>
 
     );
