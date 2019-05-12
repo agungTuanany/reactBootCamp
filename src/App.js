@@ -4,10 +4,13 @@ import './App.css';
 
 function App() {
   const title = "This is Agung's app";
+  const anotherTitle = "Tadaaa another title";
   return (
     <div className="App">
       <h1>
-        {title}
+        {
+          true ? anotherTitle : title
+        }
       </h1>
     </div>
 
