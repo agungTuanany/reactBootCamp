@@ -2,22 +2,17 @@ import React,{ Component } from 'react';
 import './App.css';
 
 class App extends Component {
-  clikcedItem() {
-    alert('clicked!');
-  }
-
-  mouseOvered() {
-    alert('overed Mouse');
-  }
-
-  onChange(e) {
-    console.log(e.target.value);
+  constructor(props) {
+    super(props);
+    // whenever you pass in a method of the component to a element or to
+    // a component you need to bind with '(this)'.
+   this.submitted = this.submitted.bind(this);
   }
 
   submitted(e) {
     e.preventDefault();
 
-    alert('submitted');
+    console.log(this.input.value);
   }
 
 
@@ -34,18 +29,14 @@ class App extends Component {
           {
             list.map(item => {
               return (
-                <div key={item}>
-                  <div onClick={this.clikcedItem}>{item}</div>
-                  {/*
-                  <div onMouseOver={this.mouseOvered}>{item}</div>
-                  */}
-                </div>
+                <div key={item} onClick={this.clikcedItem}>{item}</div>
               )
             })
           }
         </h2>
         <form onSubmit={this.submitted}>
-          <input onChange={this.onChange} />
+          {/*in React a "ref=" attributes in element recommended to put a function   */}
+          <input onChange={this.onChange} ref={input => this.input = input} />
         </form>
       </div>
 
