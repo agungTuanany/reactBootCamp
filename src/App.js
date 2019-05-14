@@ -1,6 +1,8 @@
 import React,{ Component } from 'react';
 import './App.css';
 
+import ProductItem from './components/productItem'
+
 const products = [
   {
     id: 1,
@@ -22,6 +24,8 @@ class App extends Component {
     this.state = {
       product: []
     };
+
+    this.onDelete = this.onDelete.bind(this);
   }
 
   componentWillMount() {
@@ -35,6 +39,11 @@ class App extends Component {
     this.setState({ products })
   }
 
+  onDelete(name) {
+    console.log(name);
+    // this.setState({})
+  }
+
   render() {
     return (
       <div className="App">
@@ -42,13 +51,11 @@ class App extends Component {
         {
           this.state.products.map(product => {
             return (
-              <div key={product.id} >
-                <span>{product.name}</span>
-                {`|`}
-                <span>{product.price}</span>
-                {`|`}
-              </div>
-
+              <ProductItem
+                key={product.id}
+                {...product}
+                onDelete={this.onDelete}
+              />
             );
           })
         }
