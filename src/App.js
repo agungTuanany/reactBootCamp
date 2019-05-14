@@ -7,9 +7,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      name: "initial name"
-
-    }
+      checked: true
+    };
 
    this.updateName = this.updateName.bind(this);
   }
@@ -24,8 +23,9 @@ class App extends Component {
     return (
       <div className="App">
         <input
+          type="checkBox"
           onChange={this.updateName}
-          value={this.state.name}
+          checked={this.state.checked}
         />
       </div>
     );
