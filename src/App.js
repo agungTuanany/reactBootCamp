@@ -9,8 +9,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      title: "App title",
-      author: 'agung Tuanany'
+      title: " initial title",
+      author: ' agung Tuanany'
 
     }
 
@@ -19,21 +19,17 @@ class App extends Component {
 
   onClick(e) {
     this.setState({
-      title: "A new title",
-      author: "AGUNG TUANANY"
+      title: " A new title",
+      author: " AGUNG TUANANY"
     });
   }
 
   render() {
     return (
       <div className="App">
-        <h1>{this.state.title}</h1>
-        <p>{this.state.author}</p>
-        <div onClick={this.onClick}>click me</div>
-
-        <Profile/>
         <Children
-          author= "accessing a author props from parent"
+          title= {this.state.title}
+          author= {this.state.author}
           onClick={this.onClick}
         />
       </div>

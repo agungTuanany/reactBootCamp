@@ -8,9 +8,6 @@ const propTypes = {
   author: PropTypes.string.isRequired
 };
 
-const defaultProps = {
-  title: "Default title of App"
-};
 
 const Children = (props) => {
   return (
@@ -23,6 +20,5 @@ const Children = (props) => {
 }
 
 Children.propTypes = propTypes;
-Children.defaultProps = defaultProps;
 
 export default Children
