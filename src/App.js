@@ -1,37 +1,29 @@
 import React,{ Component } from 'react';
 
 import './App.css'
-import Profile from './components/profile'
-import Children from './components/childrenComponent'
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      title: " initial title",
-      author: ' agung Tuanany'
-
+      // if the value is false it will not render the title
+      shouldRenderTitle: true
     }
 
-   this.onClick = this.onClick.bind(this);
   }
 
-  onClick(e) {
-    this.setState({
-      title: " A new title",
-      author: " AGUNG TUANANY"
-    });
+  renderTitle() {
+    if (!this.state.shouldRenderTitle) {return null; }
+
+    return <h1>Title</h1>
   }
+
 
   render() {
     return (
       <div className="App">
-        <Children
-          title= {this.state.title}
-          author= {this.state.author}
-          onClick={this.onClick}
-        />
+        {this.renderTitle()}
       </div>
     );
   }
