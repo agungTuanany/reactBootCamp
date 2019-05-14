@@ -1,7 +1,7 @@
 import React,{ Component } from 'react';
-import './App.css';
 
-import Profile from './components/myComponent'
+import './App.css'
+import Profile from './components/profile'
 import Children from './components/childrenComponent'
 
 class App extends Component {
@@ -33,7 +33,6 @@ class App extends Component {
 
         <Profile/>
         <Children
-          title= "accessing a title props from parent"
           author= "accessing a author props from parent"
           onClick={this.onClick}
         />
