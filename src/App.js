@@ -22,7 +22,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      product: []
+      products: JSON.parse(localStorage.getItem('products'))
     };
 
     this.onDelete = this.onDelete.bind(this);
@@ -37,7 +37,7 @@ class App extends Component {
 
   getProducts() {
     // 4. return getProducts 
-    return JSON.parse(localStorage.getItem('products'));
+    return this.state.products
   }
 
     //1. define onDelete method with a product which actually get deleted
