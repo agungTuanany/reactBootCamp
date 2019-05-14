@@ -1,36 +1,31 @@
 import React,{ Component } from 'react';
 
 import './App.css'
-import Profile from './components/profile'
-import Children from './components/childrenComponent'
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      title: " initial title",
-      author: ' agung Tuanany'
+      name: "initial name"
 
     }
 
-   this.onClick = this.onClick.bind(this);
+   this.updateName = this.updateName.bind(this);
   }
 
-  onClick(e) {
+  updateName(e) {
     this.setState({
-      title: " A new title",
-      author: " AGUNG TUANANY"
+      name: e.target.value
     });
   }
 
   render() {
     return (
       <div className="App">
-        <Children
-          title= {this.state.title}
-          author= {this.state.author}
-          onClick={this.onClick}
+        <input
+          onChange={this.updateName}
+          value={this.state.name}
         />
       </div>
     );
