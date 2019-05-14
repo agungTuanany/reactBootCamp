@@ -2,7 +2,6 @@ import React,{ Component } from 'react';
 import './App.css';
 
 import Profile from './components/myComponent'
-import Children from './components/childrenComponent'
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +10,6 @@ class App extends Component {
     this.state = {
       title: "App title",
       author: 'agung Tuanany'
-
     }
 
    this.onClick = this.onClick.bind(this);
@@ -32,11 +30,6 @@ class App extends Component {
         <div onClick={this.onClick}>click me</div>
 
         <Profile/>
-        <Children
-          title= "accessing a title props from parent"
-          author= "accessing a author props from parent"
-          onClick={this.onClick}
-        />
       </div>
     );
   }
