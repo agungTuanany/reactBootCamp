@@ -22,11 +22,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {
-          this.state.shouldRenderTitle
-            ? <h1>Title</h1>
-            : null
-        }
       </div>
     );
   }
