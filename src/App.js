@@ -29,19 +29,28 @@ class App extends Component {
   }
 
   componentWillMount() {
-    this.getProducts();
-  }
-
-  // method will use
-  getProducts() {
-    const products = JSON.parse(localStorage.getItem('products'));
-
+    //2. make a getProduct method just return the list of products
+    const products = this.getProducts();
+    // 3, declare a list of product before deleted
     this.setState({ products })
   }
 
+  getProducts() {
+    // 4. return getProducts 
+    return JSON.parse(localStorage.getItem('products'));
+  }
+
+    //1. define onDelete method with a product which actually get deleted
   onDelete(name) {
-    console.log(name);
-    // this.setState({})
+    const products = this.getProducts();
+
+    // 5. filtered deleted product
+    const filteredProducts = products.filter(product => {
+      return product.name !== name;
+    });
+    // 6. get result that showed up after deleted product
+    this.setState({ products: filteredProducts })
+
   }
 
   render() {
