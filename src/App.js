@@ -25,6 +25,11 @@ class App extends Component {
   }
 
   componentWillMount() {
+    this.getProducts();
+  }
+
+  // method will use
+  getProducts() {
     const products = JSON.parse(localStorage.getItem('products'));
 
     this.setState({ products })
@@ -38,7 +43,10 @@ class App extends Component {
           this.state.products.map(product => {
             return (
               <div key={product.id} >
-                <span>{product.name}</span> | <span>{product.price}</span>
+                <span>{product.name}</span>
+                {`|`}
+                <span>{product.price}</span>
+                {`|`}
               </div>
 
             );
