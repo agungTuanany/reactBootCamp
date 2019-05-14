@@ -10,12 +10,13 @@ class App extends Component {
       checked: true
     };
 
-   this.updateName = this.updateName.bind(this);
+   this.updateCheck = this.updateCheck.bind(this);
   }
 
-  updateName(e) {
+  updateCheck(e) {
     this.setState({
-      name: e.target.value
+      // checked will put in opposite what is previously it was
+      checked: !this.state.checked
     });
   }
 
@@ -23,8 +24,8 @@ class App extends Component {
     return (
       <div className="App">
         <input
-          type="checkBox"
-          onChange={this.updateName}
+          type="checkbox"
+          onChange={this.updateCheck}
           checked={this.state.checked}
         />
       </div>
