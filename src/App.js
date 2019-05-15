@@ -1,7 +1,8 @@
 import React,{ Component } from 'react';
 import './App.css';
 
-import ProductItem from './components/productItem'
+import ProductItem from './components/ProductItem'
+import AddProduct from './components/AddProduct'
 
 const products = [
   {
@@ -26,29 +27,36 @@ class App extends Component {
     };
 
     this.onDelete = this.onDelete.bind(this);
+    this.onAdd = this.onAdd.bind(this);
   }
 
   componentWillMount() {
-    //2. make a getProduct method just return the list of products
     const products = this.getProducts();
-    // 3, declare a list of product before deleted
+
     this.setState({ products })
   }
 
   getProducts() {
-    // 4. return getProducts 
     return this.state.products
   }
 
-    //1. define onDelete method with a product which actually get deleted
+  onAdd(name, price) {
+    const products = this.getProducts();
+
+    products.push({
+      name,
+      price
+    });
+
+  }
+
   onDelete(name) {
     const products = this.getProducts();
 
-    // 5. filtered deleted product
     const filteredProducts = products.filter(product => {
       return product.name !== name;
     });
-    // 6. get result that showed up after deleted product
+
     this.setState({ products: filteredProducts })
 
   }
@@ -56,6 +64,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <AddProduct
+          onAdd={this.onAdd}
+        />
         <h1>Products Manager</h1>
         {
           this.state.products.map(product => {
